@@ -1,0 +1,193 @@
+body {
+    background-image: url('/assets/images/london.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 1000px;
+    margin: 50px auto 0 auto;
+    border: #042f3e solid 3px;
+}
+
+.game {
+    margin: 0 auto 0 auto;
+}
+
+.responsiveheader {
+    display: none;
+}
+
+h1 {
+    font-family: 'Ultra', cursive;
+    font-size: 50px;
+    margin: 10px auto 0px auto;
+    color: #fff;
+    font-weight: normal;
+    padding: 20px;
+}
+
+h2 {
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 25px;
+    text-transform: uppercase;
+    padding-top: 30px;
+    
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: medium;
+}
+
+h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: small;
+    color: white;
+}
+
+.title {
+    padding: 30px;
+    text-align: center;
+    border-bottom: 3px #042f3e solid;
+    background-color: rgba(63, 93, 118, .5);
+}
+
+#getStarted {
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    background-color: rgba(255, 255, 255, .5);
+}
+
+
+.questionmark {
+    display: block;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    border-right: #042f3e solid 3px;
+    background-color: rgba(255, 255, 255, .5);
+    text-align: center;
+}
+
+.currentword {
+    text-align: center;
+    font-size:
+    padding: 20px;
+}
+
+.scoreboard {
+    background-color: rgba(255, 255, 255, .5);
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 40px;
+}
+
+.stats {
+    background-color: rgba(63, 93, 118, .5);
+    padding: 10px;
+    color: white;
+}
+
+#guessesRemaining {
+    background-color: rgba(63, 93, 118, .5);
+    padding: 10px;
+    color: white;
+}
+
+#alreadyGuessed {
+    background-color: rgba(63, 93, 118, .5);
+    padding: 10px;
+    color: white;
+}
+
+@media only screen and (max-width: 980px) {
+    body {
+        border: none;
+        max-width: 80%;
+    }
+    
+    .game {
+        margin: 0 auto 0 auto;
+    }
+
+    .responsiveheader {
+        display: block;
+    }
+
+    .title {
+        border: none;
+        border: #042f3e solid 3px;
+        margin-bottom: 30px;
+
+    }
+    
+    .questionmark {
+        border: none;
+        background-color: rgba(0, 0, 0, 0);
+
+    }
+
+    header {
+        max-width: 80%;
+        margin: 0 auto 0 auto;
+        display: none;
+    }
+    .content {
+        max-width: 80%; 
+        display: block;
+        margin: 0 auto 50px auto;
+        border: #042f3e solid 3px;
+
+    }
+    .scoreboard {
+        max-width: 80%; 
+        display: block;
+        margin: 0 auto 0 auto;
+        background-color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 50px;
+ 
+    }
+    #stats {
+        background-color: rgba(63, 93, 118);
+        padding: 10px;
+        color: white;
+    }
+    
+    #guessesRemaining {
+        background-color: rgba(63, 93, 118);
+        padding: 10px;
+        color: white;
+    }
+    
+    #alreadyGuessed {
+        background-color: rgba(63, 93, 118);
+        padding: 10px;
+        color: white;
+}
+
+h4 {
+    margin: 0 auto 20px auto;
+}
+}
+
+@media only screen and (max-width: 768px) {
+
+        .body {
+            max-width: 80%;
+            margin: 0 auto 0 auto;
+        }
+        h1{
+            font-size: 30px;
+            padding-top: 0px;
+            margin-top: 0px;
+        }
+        h4 {
+            margin: 0 auto 20px auto;
+        }
+}

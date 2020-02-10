@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Word Guess Game</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.ico">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Ultra&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Montserrat&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+        
+        <div class="title">
+            
+            <h1>British Hangman</h1>
+            
+            <span id="getStartedParent"><h4 id="getStarted">Press any key to get started.</h4>
+            </span>
+            </span>
+        
+        </div>
+
+    </header>
+
+
+    <div class="game">
+        
+        <div class=content>
+            
+            <div class="questionmark">
+                
+                <div class="responsiveheader">
+                    <h1>British Hangman</h1>
+                    <span id="userDirectionsParent"><h4 id="userDirections">Press any key to get started.</h4>
+                    </span>
+                </div>
+
+                    <img id="img" style="width:80%; padding: 20px; background-color: rgba(63, 93, 118, .5); border: 3px solid #042f3e;"
+                    src="assets/images/questionmarks.png" alt="Guess">
+                
+                    <div class="currentword">
+                        
+                        <h2 id="key">replace with blanks</h2>
+                   
+                    </div>
+
+            </div>
+
+            <div class="scoreboard">
+                
+                <h3 class="stats">Wins</h3>
+                
+                <h2 id="wins-text"></h2>
+                <br>
+                
+                <h3 class="stats">Guesses Remaining</h3>
+                
+                <h2 id="attempts-left-text"></h2>
+                <br>
+                
+                <h3 class="stats">Already Guessed</h3>
+                
+                <h2 id="guessed-letters-text"></h2>
+            
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<!--Javascript-->
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+
+</html>
