@@ -20,10 +20,7 @@
 //=================================================
 
 //possible answers
-var hangmanArray = ["wimbledon"] 
-//"thegreatbritishbakingshow", "kuruptfm", "londonbridge", "themightyboosh"];
-// images
-var hangmanImages = ["wimbledon.jpg", "greatbritishbakingshow.jpg", "kuruptfm.jpg", "londonbridge.jpg", "mightyboosh.jpg"]
+var hangmanArray = ["wimbledon", "the great british baking show", "kurupt fm", "london bridge", "the mighty boosh"];
 //answer the computer chose from hangmanArray
 var answer = "";
 //characters in the correct answer
@@ -50,9 +47,7 @@ var guessesLeft = 10;
 
 function startGame () {
     //select an answer
-    var randomNumber = Math.floor(Math.random() * hangmanArray.length);
-    answer = this.hangmanArray[randomNumber];
-    this.imageSrc = this.hangmanImages[randomNumber];
+    answer = hangmanArray[Math.floor(Math.random()*hangmanArray.length)];
     //replaces spaces with nothing *took this out*
     //splits the letters in answer into individual segments
     lettersInAnswer = answer.split("");
@@ -73,28 +68,44 @@ function startGame () {
     document.getElementById("answer-text").innerHTML = underscoresAndCorrectLetters.join(" ");
     //show the number of guesses left
     document.getElementById("attempts-left-text").innerHTML = guessesLeft;
+
+    //testing
+    console.log(answer);
+    console.log(charactersInAnswer);
+    console.log(lettersInAnswer)
+    console.log(numberOfUnderscores);
+    console.log(underscoresAndCorrectLetters);
 } 
 
 function check(letter) {
-    
+    //check if letter is found in answer
     var isLetterCorrect = false;
-    //checks to see if letter is in answer
-    for (var i = 0; i < numberOfUnderscores; i++) {
+    for (var i=0; i<numberOfUnderscores; i++) {
         if(answer[i] == letter) {
-            underscoresAndCorrectLetters[i] = letter;
-            isLetterCorrect = true;
+            isLetterCorrect=true;
         }
     }
-
-    if (!isLetterCorrect) {
-
-            wrongGuesses.push(letter);
-            guessesLeft--;
-
+    //check where the letter is found and fill it in
+    if(isLetterCorrect) {
+        for (var i=0; i<numberOfUnderscores; i++) {
+            if(answer[i] == letter) {
+            underscoresAndCorrectLetters[i] = letter;
+            }
+        }
     }
+    //if guess is wrong
+    else {
+        wrongGuesses.push(letter);
+        guessesLeft--;
+    }
+
+    //testing
+    console.log(underscoresAndCorrectLetters);
 }
 
-function nextRound() {
+function gameOver() {
+    //testing
+    console.log("Win count:" + winCount + " | Guesses left: " + guessesLeft);
     
     //keep track of everything in HTML
     document.getElementById("wins-text").innerHTML = winCount;
@@ -102,12 +113,12 @@ function nextRound() {
     document.getElementById("answer-text").innerHTML = underscoresAndCorrectLetters.join(" ");
     document.getElementById("guessed-letters-text").innerHTML = wrongGuesses.join("   ");
 
+
+
+
     //if user wins
     if (lettersInAnswer.toString() == underscoresAndCorrectLetters.toString()) {
         
-        //show corresponding image
-        document.getElementById("img").
-
         //increase wins
         winCount++;
 
@@ -124,18 +135,18 @@ function nextRound() {
         //start a new game
         startGame();
     }
-        //if user loses
-    else if (!guessesLeft) {
-        
+
+    //if user loses
+    else if (guessesLeft=0) {
         //alert the user "You lose."
         alert ("You lose.");
         
         //play sound "You lose!"
         var audioLose = new Audio('assets/sounds/youlose.mp3');
-            audioLose.play();
-            
+        audioLose.play();
+        
         //start new game
-            startGame();
+        startGame();
     }
 
 
@@ -153,25 +164,29 @@ startGame();
 //registering keys pressed
 document.onkeyup = function(event) {
     
-    //only letters accepted
-    if (event.keyCode >= 65 && event.keyCode <= 90) {
+      // captures keypress, eliminating repeat letters
+  if (event.keyCode >= 65 && event.keyCode <= 90) {
     letterGuessed = event.key;
 
-    //doesn't allow wrong guesses to be repeated
-        if (wrongGuesses.indexOf(letterGuessed) !== -1) {
-            alert("You've already guessed that letter.");
-            return;
-            }
-        
-        var guessedLetter = String.fromCharCode(event.keyCode).toLowerCase();
-        
-        //run check for guessed letter in answer
-        check(guessedLetter);
-        
-        //run next round
-        nextRound();
+    if (wrongGuesses.indexOf(letterGuessed) !== -1) {
+        alert("You've already guessed that letter.");
+        return;
+      }
+
+    
+    var guessedLetter = String.fromCharCode(event.keyCode).toLowerCase();
+    
+
+
+    check(guessedLetter);
+    
+    gameOver();
 
     }
+
+    //test
+    console.log(guessedLetter);
+    console.log(winCount)
 }
 
 
