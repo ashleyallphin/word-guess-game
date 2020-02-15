@@ -52,9 +52,9 @@ var guessesLeft = 10;
 function startGame () {
     //select an answer
     var randomNumber = Math.floor(Math.random() * hangmanArray.length);
-    answer = this.hangmanArray[randomNumber];
+    answer = hangmanArray[randomNumber];
     //match correct image to answer
-    correctImage = this.hangmanImages[randomNumber];
+    correctImage = hangmanImages[randomNumber];
     console.log(correctImage);
     console.log(answer);
     //replaces spaces with nothing *took this out*
