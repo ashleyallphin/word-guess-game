@@ -20,7 +20,7 @@
 //=================================================
 
 //possible answers
-var hangmanArray = ["wimbledon", "thegreatbritishbakingshow", "kuruptfm", "londonbridge", "themightyboosh"];
+var hangmanArray = ["wimbledon", "thegreatbritishbakeoff", "kuruptfm", "londonbridge", "themightyboosh"];
 // images
 var hangmanImages = ["wimbledon.jpg", "thegreatbritishbakingshow.jpg", "kuruptfm.jpg", "londonbridge.jpg", "themightyboosh.jpg"]
 //answer the computer chose from hangmanArray
@@ -42,6 +42,7 @@ var winCount = 0;
 //number of guesses the user has left
 var guessesLeft = 10;
 var questionMarks = "assets/images/questionmarks.png";
+var directions = "Press a key to guess a letter."
 
 
 
@@ -58,8 +59,8 @@ function startGame () {
     answer = hangmanArray[randomNumber];
     //match correct image to answer
     correctImage = hangmanImages[randomNumber];
-    console.log(correctImage);
-    console.log(answer);
+    //console.log(correctImage);
+    //console.log(answer);
     //replaces spaces with nothing *took this out*
     //splits the letters in answer into individual segments
     lettersInAnswer = answer.split("");
@@ -70,6 +71,7 @@ function startGame () {
     guessesLeft = 10;
     wrongGuesses = [];
     underscoresAndCorrectLetters = [];
+
 
 
     //show underscores for each letter in answer
@@ -83,6 +85,9 @@ function startGame () {
     document.getElementById("attempts-left-text").innerHTML = guessesLeft;
     // show winning image
     document.getElementById("img").innerHTML = correctImage;
+    //remove directions
+    document.getElementById("directions-text-mobile").innerHTML = directions;
+    document.getElementById("directions-text-desktop").innerHTML = directions;
 
 } 
 
@@ -92,8 +97,8 @@ function check(letter) {
     for (var i = 0; i < numberOfUnderscores; i++) {
         if(answer[i] == letter) {
             underscoresAndCorrectLetters[i] = letter;
-            isLetterCorrect = true;
-        }
+            isLetterCorrect = true; 
+       }
     }
 
     if (!isLetterCorrect) {
@@ -108,7 +113,6 @@ function nextRound() {
     
     //keep track of everything in HTML
     document.getElementById("img").src = questionMarks;
-
     document.getElementById("wins-text").innerHTML = winCount;
     document.getElementById("attempts-left-text").innerHTML = guessesLeft;
     document.getElementById("answer-text").innerHTML = underscoresAndCorrectLetters.join(" ");
@@ -170,6 +174,7 @@ startGame();
 //registering keys pressed
 document.onkeyup = function(event) {
     
+
     //only letters accepted
     if (event.keyCode >= 65 && event.keyCode <= 90) {
     letterGuessed = event.key;
@@ -192,5 +197,6 @@ document.onkeyup = function(event) {
 
     }
 }
+
 
 
