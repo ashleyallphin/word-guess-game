@@ -51,7 +51,7 @@ var directions = "Press a key to guess a letter."
 //FUNCTIONS
 //=================================================
 
-console.log(questionMarks);
+
 
 function startGame () {
     //select an answer
