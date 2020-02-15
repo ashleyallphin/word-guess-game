@@ -41,6 +41,7 @@ var wrongGuesses = [];
 var winCount = 0;
 //number of guesses the user has left
 var guessesLeft = 10;
+var questionMarks = "assets/images/questionmarks.png";
 
 
 
@@ -48,6 +49,8 @@ var guessesLeft = 10;
 
 //FUNCTIONS
 //=================================================
+
+console.log(questionMarks);
 
 function startGame () {
     //select an answer
@@ -68,6 +71,7 @@ function startGame () {
     wrongGuesses = [];
     underscoresAndCorrectLetters = [];
 
+
     //show underscores for each letter in answer
     for (var i=0; i<numberOfUnderscores; i++) {
         underscoresAndCorrectLetters.push("_");
@@ -78,12 +82,12 @@ function startGame () {
     //show the number of guesses left
     document.getElementById("attempts-left-text").innerHTML = guessesLeft;
     // show winning image
-    // document.getElementById("img").innerHTML = correctImage;
+    document.getElementById("img").innerHTML = correctImage;
+
 } 
 
 function check(letter) {
-    
-    var isLetterCorrect = false;
+ var isLetterCorrect = false;
     //checks to see if letter is in answer
     for (var i = 0; i < numberOfUnderscores; i++) {
         if(answer[i] == letter) {
@@ -103,6 +107,8 @@ function check(letter) {
 function nextRound() {
     
     //keep track of everything in HTML
+    document.getElementById("img").src = questionMarks;
+
     document.getElementById("wins-text").innerHTML = winCount;
     document.getElementById("attempts-left-text").innerHTML = guessesLeft;
     document.getElementById("answer-text").innerHTML = underscoresAndCorrectLetters.join(" ");
@@ -117,13 +123,13 @@ function nextRound() {
 
         //show CORRESPONDING IMAGE ON WIN
         document.getElementById("img").src = "assets/images/" + correctImage;
-        console.log(correctImage);
+        //testing console.log(correctImage);
 
         //increase wins
         winCount++;
 
         //alert "You win!"
-        //alert("You win!");
+        alert("You win!");
         
         //play sound "You win!"
         var audioWin = new Audio('assets/sounds/youwin.mp3');
@@ -181,6 +187,8 @@ document.onkeyup = function(event) {
         
         //run next round
         nextRound();
+
+
 
     }
 }
