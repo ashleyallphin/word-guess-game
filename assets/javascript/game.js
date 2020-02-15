@@ -133,7 +133,7 @@ function nextRound() {
         winCount++;
 
         //alert "You win!"
-        alert("You win!");
+        alert("Well done you!");
         
         //play sound "You win!"
         var audioWin = new Audio('assets/sounds/youwin.mp3');
@@ -149,7 +149,7 @@ function nextRound() {
     else if (!guessesLeft) {
         
         //alert the user "You lose."
-        alert ("You lose.");
+        alert ("Sorry, mate.");
         
         //play sound "You lose!"
         var audioLose = new Audio('assets/sounds/youlose.mp3');
