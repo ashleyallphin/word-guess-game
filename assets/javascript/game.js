@@ -20,12 +20,13 @@
 //=================================================
 
 //possible answers
-var hangmanArray = ["wimbledon"] 
-//"thegreatbritishbakingshow", "kuruptfm", "londonbridge", "themightyboosh"];
+var hangmanArray = ["wimbledon", "thegreatbritishbakingshow", "kuruptfm", "londonbridge", "themightyboosh"];
 // images
 var hangmanImages = ["wimbledon.jpg", "greatbritishbakingshow.jpg", "kuruptfm.jpg", "londonbridge.jpg", "mightyboosh.jpg"]
 //answer the computer chose from hangmanArray
 var answer = "";
+//image to match answer the computer chose from hangmanArray
+var correctImage = "";
 //characters in the correct answer
 var charactersInAnswer = [];
 //letters in the correct answer (no spaces)
@@ -52,7 +53,10 @@ function startGame () {
     //select an answer
     var randomNumber = Math.floor(Math.random() * hangmanArray.length);
     answer = this.hangmanArray[randomNumber];
-    this.imageSrc = this.hangmanImages[randomNumber];
+    //match correct image to answer
+    correctImage = this.hangmanImages[randomNumber];
+    console.log(correctImage);
+    console.log(answer);
     //replaces spaces with nothing *took this out*
     //splits the letters in answer into individual segments
     lettersInAnswer = answer.split("");
@@ -73,6 +77,8 @@ function startGame () {
     document.getElementById("answer-text").innerHTML = underscoresAndCorrectLetters.join(" ");
     //show the number of guesses left
     document.getElementById("attempts-left-text").innerHTML = guessesLeft;
+    // show winning image
+    // document.getElementById("img").innerHTML = correctImage;
 } 
 
 function check(letter) {
@@ -105,14 +111,19 @@ function nextRound() {
     //if user wins
     if (lettersInAnswer.toString() == underscoresAndCorrectLetters.toString()) {
         
-        //show corresponding image
-        document.getElementById("img").
+        //show kuruptfm.jpg on win
+        //document.getElementById("img").src = "assets/images/kuruptfm.jpg";
+        //console.log(correctImage);
+
+        //show CORRESPONDING IMAGE ON WIN
+        document.getElementById("img").src = "assets/images/" + correctImage;
+        console.log(correctImage);
 
         //increase wins
         winCount++;
 
         //alert "You win!"
-        alert("You win!");
+        //alert("You win!");
         
         //play sound "You win!"
         var audioWin = new Audio('assets/sounds/youwin.mp3');
