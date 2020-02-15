@@ -136,7 +136,7 @@ function nextRound() {
         alert("Well done you!");
         
         //play sound "You win!"
-        var audioWin = new Audio('assets/sounds/youwin.mp3');
+        var audioWin = new Audio('assets/sounds/jollygood.m4a');
         audioWin.play();
 
         //update winCount on page
@@ -152,7 +152,7 @@ function nextRound() {
         alert ("Sorry, mate.");
         
         //play sound "You lose!"
-        var audioLose = new Audio('assets/sounds/youlose.mp3');
+        var audioLose = new Audio('assets/sounds/ghastly.m4a');
             audioLose.play();
             
         //start new game
