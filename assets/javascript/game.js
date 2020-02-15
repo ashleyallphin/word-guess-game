@@ -22,7 +22,7 @@
 //possible answers
 var hangmanArray = ["wimbledon", "thegreatbritishbakingshow", "kuruptfm", "londonbridge", "themightyboosh"];
 // images
-var hangmanImages = ["wimbledon.jpg", "greatbritishbakingshow.jpg", "kuruptfm.jpg", "londonbridge.jpg", "mightyboosh.jpg"]
+var hangmanImages = ["wimbledon.jpg", "thegreatbritishbakingshow.jpg", "kuruptfm.jpg", "londonbridge.jpg", "themightyboosh.jpg"]
 //answer the computer chose from hangmanArray
 var answer = "";
 //image to match answer the computer chose from hangmanArray
